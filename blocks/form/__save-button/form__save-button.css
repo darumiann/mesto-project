@@ -8,11 +8,13 @@
   font-size: 18px;
   line-height: 22px;
   color: #fff;
-  background-color: #000;
+  background-color: rgba(0 0 0 / 1);
+  border: 0;
+  border-radius: 2px;
 }
 
 .form__save-button:hover {
-  opacity: 80%;
+  background-color: rgba(0 0 0 / .8);
 }
 
 @media screen and (max-width: 725px) {
@@ -21,5 +23,6 @@
     font-size: 14px;
     line-height: 17px;
     width: 238px;
+    height: 46px;
   }
 }
