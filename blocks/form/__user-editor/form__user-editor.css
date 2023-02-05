@@ -1,0 +1,14 @@
+.form__user-editor {
+  width: 430px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 725px) {
+  .form__user-editor {
+    width: 282px;
+  }
+}

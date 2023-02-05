@@ -1,0 +1,13 @@
+.profile__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+@media screen and (max-width: 725px) {
+  .profile__list {
+    width: 217px;
+    max-width: 100%;
+    align-items: center;
+  }
+}
