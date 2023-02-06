@@ -1,6 +1,5 @@
 .profile__user-name {
-  min-width: 294px;
-  max-width: 66%;
+  width: max-content;
   margin: 22px 0 0 0;
   padding: 0;
   font-family: 'Inter', 'Arial', sans-serif;
@@ -17,7 +16,6 @@
     font-size: 27px;
     line-height: 33px;
     text-align: center;
-    min-width: 100%;
     margin-top: 0;
   }
 }

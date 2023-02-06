@@ -6,7 +6,7 @@
 
 @media screen and (max-width: 725px) {
   .profile__list {
-    max-width: 217px;
+    max-width: 282px;
     align-items: center;
   }
 }

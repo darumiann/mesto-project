@@ -21,6 +21,6 @@
   .header {
     padding-top: 28px;
     margin-bottom: 42px;
-    min-width: calc(100% - (19px + 19px));
+    min-width: 100%;
   }
 }
