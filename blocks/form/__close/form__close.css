@@ -12,6 +12,7 @@
   background-color: rgb(0 0 0 / 0%);
   background-size: 32px 32px;
   border: 0;
+  cursor: pointer;
 }
 
 .form__close:hover {

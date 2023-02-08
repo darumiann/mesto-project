@@ -11,6 +11,9 @@
   color: #000000;
   border-bottom: 1px solid rgb(0 0 0 / 20%);
   height: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .form__field-item:first-of-type {
