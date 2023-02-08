@@ -1,7 +1,7 @@
 .form__close {
-  position: relative;
+  position: absolute;
+  top: -40px;
   right: -40px;
-  top: -42px;
   margin: 0;
   padding: 0;
   width: 32px;
@@ -13,17 +13,18 @@
   background-size: 32px 32px;
   border: 0;
   cursor: pointer;
+  align-self: flex-end;
 }
 
 .form__close:hover {
-  opacity: 60%;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 725px) {
   .form__close {
     width: 20px;
     height: 20px;
-    top: -41px;
+    top: -36px;
     right: 0;
     background-size: 20px 20px;
   }

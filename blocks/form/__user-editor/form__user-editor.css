@@ -1,13 +1,16 @@
 .form__user-editor {
-  margin: 34px auto 37px;
   max-width: 358px;
   width: 100%;
+  margin: 34px auto 37px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media screen and (max-width: 725px) {
   .form__user-editor {
-    max-width: 238px;
-    width: 100%;
-    margin: 25px auto;
+    width: 282px;
   }
 }

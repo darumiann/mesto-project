@@ -14,6 +14,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  align-self: flex-start;
 }
 
 .form__field-item:first-of-type {
