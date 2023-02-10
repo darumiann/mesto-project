@@ -1,13 +1,11 @@
 .form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 430px;
-  background-color: #fff;
-  border-radius: 10px;
+  width: 358px;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media screen and (max-width: 725px) {

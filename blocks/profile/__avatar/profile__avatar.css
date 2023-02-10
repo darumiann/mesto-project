@@ -7,7 +7,7 @@
   border-radius: 50%;
 }
 
-@media screen and (max-width: 976px) {
+@media screen and (max-width: 725px) {
   .profile__avatar {
     justify-self: center;
     margin-bottom: 26px;

@@ -1,17 +1,14 @@
 .profile__user {
   grid-area: heading;
-  width: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  align-self: center;
-  justify-self: center;
 }
 
 @media screen and (max-width: 725px) {
   .profile__user {
     max-width: 100%;
-    height: 54px;
     align-items: center;
   }
 }
