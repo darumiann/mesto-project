@@ -21,11 +21,9 @@
   .profile__info {
     grid-template-columns: 282px;
     grid-template-rows: 51.05% 18.88% 30.07%;
-    gap: 0;
     grid-template-areas:
     "avatar"
     "heading"
     "add";
-    justify-content: space-between;
   }
 }
