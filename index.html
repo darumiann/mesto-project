@@ -18,78 +18,69 @@
         <div class="profile__info">
           <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватарка">
           <div class="profile__user">
-              <div class="profile__edit">
-                <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-                <button class="profile__edit-button" type="button"></button>
-              </div>
-              <p class="profile__user-status">Исследователь океана</p>
+            <div class="profile__edit">
+              <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+              <button class="profile__edit-button" type="button"></button>
+            </div>
+            <p class="profile__user-status">Исследователь океана</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </div>
       </section>
       <section class="elements">
-        <div class="elements__element">
-          <img class="elements__img" src="./images/karachaevsk.jpg" alt="Карачаевск">
-          <div class="elements__info">
-            <h2 class="elements__title">Карачаевск</h2>
-            <button class="elements__like" type="button"></button>
+        <template id="elementTemplate">
+          <div class="elements__element">
+            <button class="elements__delete" type="button"></button>
+            <img class="elements__img" role="button" src="./images/karachaevsk.jpg" alt="Карачаевск">
+            <div class="elements__info">
+              <h2 class="elements__title">Карачаевск</h2>
+              <button class="elements__like" type="button" ID="elements__like"></button>
+            </div>
           </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__img" src="./images/elbrus.png" alt="Гора Эльбрус">
-          <div class="elements__info">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__img" src="./images/dombay.png" alt="Домбай">
-          <div class="elements__info">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__img" src="./images/elbrus.png" alt="Гора Эльбрус">
-          <div class="elements__info">
-            <h2 class="elements__title">Гора Эльбрус</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__img" src="./images/dombay.png" alt="Домбай">
-          <div class="elements__info">
-            <h2 class="elements__title">Домбай</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </div>
-        <div class="elements__element">
-          <img class="elements__img" src="./images/karachaevsk.jpg" alt="Карачаево-Черкесия">
-          <div class="elements__info">
-            <h2 class="elements__title">Карачаево-Черкесия</h2>
-            <button class="elements__like" type="button"></button>
-          </div>
-        </div>
+        </template>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <section class="popup" id="popup">
+    <section class="popup" id="profile-popup">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form class="form" name="user-editor">
-          <h2 class="form__heading">Редактировать профиль</h2>
-          <fieldset class="form__field">
-            <input class="form__field-item" type="text" name="username" placeholder="Имя пользователя"
-              value="Жак-Ив Кусто">
-            <input class="form__field-item" type="text" name="userstatus" placeholder="Статус пользователя"
-              value="Исследователь океана">
+        <form class="editor-form" name="user-editor">
+          <h2 class="editor-form__heading">Редактировать профиль</h2>
+          <fieldset class="editor-form__field">
+            <input class="editor-form__field-item" type="text" name="username" placeholder="Имя пользователя" value="">
+            <input class="editor-form__field-item" type="text" name="userstatus" placeholder="Статус пользователя" value="">
           </fieldset>
-          <button class="form__save-button" type="submit">Сохранить</button>
+          <button class="editor-form__save-button" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
+    <section class="popup" id="cards-popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form class="cards-form" name="card-poster">
+          <h2 class="cards-form__heading">Новое место</h2>
+          <fieldset class="cards-form__field">
+            <input class="cards-form__field-item" type="text" name="cardTitle" placeholder="Название" value="">
+            <input class="cards-form__field-item" type="url" name="cardLink" placeholder="Ссылка на картинку" value="">
+          </fieldset>
+          <button class="cards-form__save-button" type="submit">Создать</button>
+        </form>
+      </div>
+    </section>
+    <section id='image-popup' class="popup">
+      <div class="popup__image-container">
+        <button type="button" class="popup__close-button"></button>
+        <figure>
+          <img class="popup__image" src="" alt="">
+          <figcaption class="popup__image-caption"></figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
+  <script src="script.js">
+  </script>
 </body>
+
 </html>

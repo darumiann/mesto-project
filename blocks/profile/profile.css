@@ -1,12 +1,14 @@
 .profile {
-  min-width: calc(100% - (200px + 200px));
+  width: calc(100% - (200px + 200px));
+  min-width: 880px;
   margin: 0;
   padding: 0 0 50px 0;
 }
 
 @media screen and (max-width: 976px) {
   .profile {
-    min-width: calc(100% - (48px + 48px));
+    width: calc(100% - (48px + 48px));
+    min-width: 636px;
   }
 }
 

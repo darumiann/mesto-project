@@ -1,0 +1,22 @@
+.cards-form__heading {
+  width: 358px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #000;
+  margin: 34px 0 54px 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 725px) {
+  .cards-form__heading {
+    margin-top: 25px;
+    margin-bottom: 75px;
+    font-size: 18px;
+    line-height: 22px;
+    width: 238px;
+  }
+}
