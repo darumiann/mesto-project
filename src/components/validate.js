@@ -1,0 +1,67 @@
+import { formValidationConfig, formProfileEdit, formAddCard } from '../components/utils.js';
+
+const toggleButtonState = (inputList, saveButton) => {
+  const isValid = inputList.every((input) => input.validity.valid);
+  saveButton.disabled = !isValid;
+  saveButton.classList.toggle(formValidationConfig.inactiveSaveButton, !isValid);
+};
+
+const setEventListeners = (formElement, formValidationConfig) => {
+  const saveButton = formElement.querySelector(formValidationConfig.saveButton);
+  const inputList = Array.from(formElement.querySelectorAll(formValidationConfig.formInput));
+
+  const showInputError = (inputElement) => {
+    const errorElement = inputElement.nextElementSibling;
+    inputElement.classList.add(formValidationConfig.inputErrorType);
+    errorElement.classList.add(formValidationConfig.inputErrorClass);
+  };
+
+  const hideInputError = (inputElement) => {
+    const errorElement = inputElement.nextElementSibling;
+    inputElement.classList.remove(formValidationConfig.inputErrorType);
+    errorElement.classList.remove(formValidationConfig.inputErrorClass);
+  };
+
+  const checkInputValidity = (inputElement) => {
+    const errorElement = inputElement.nextElementSibling;
+    if (inputElement.value === '') {
+      showInputError(inputElement);
+      errorElement.textContent = inputElement.getAttribute('data-error-empty-string');
+    } else if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
+      showInputError(inputElement);
+      errorElement.textContent = inputElement.getAttribute('data-error-link');
+    } else if (inputElement.value.trim().length === 1) {
+      showInputError(inputElement);
+      errorElement.textContent = inputElement.getAttribute('data-error-semi-empty-string');
+    } else if (inputElement.validity.patternMismatch) {
+      showInputError(inputElement);
+      errorElement.textContent = inputElement.getAttribute('data-error-pattern');
+    } else {
+      hideInputError(inputElement);
+    }
+    toggleButtonState(inputList, saveButton);
+  };
+
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+      checkInputValidity(inputElement);
+    });
+  });
+
+  toggleButtonState(inputList, saveButton);
+};
+
+const enableValidation = (formValidationConfig) => {
+  setEventListeners(formProfileEdit, formValidationConfig);
+  setEventListeners(formAddCard, formValidationConfig);
+}
+
+const toggleButtonStateFormCard = () => {
+  toggleButtonState(Array.from(formAddCard.querySelectorAll(formValidationConfig.formInput)), formAddCard.querySelector(formValidationConfig.saveButton));
+};
+
+const toggleButtonStateProfileEdit = () => {
+  toggleButtonState(Array.from(formProfileEdit.querySelectorAll(formValidationConfig.formInput)), formProfileEdit.querySelector(formValidationConfig.saveButton));
+};
+
+export { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit };
