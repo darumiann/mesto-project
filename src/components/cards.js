@@ -1,7 +1,6 @@
 import { initialCards, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupCardsAdd } from '../components/constants.js';
 import { openPopup, closePopup } from '../components/utils.js';
 
-
 /* Реализуем создание карточек */
 function createCard(card) {
   const newCard = cardTemplate.cloneNode(true)
@@ -10,7 +9,7 @@ function createCard(card) {
   const cardImage = newCard.querySelector('.elements__img');
   cardImage.setAttribute('src', card.link);
   cardImage.setAttribute('alt', card.name);
-  const imgPopupOpener = newCard.querySelector('.elements__img');
+  const imgPopupOpener = cardImage;
   imgPopupOpener.addEventListener('click', () => openImagePopup(card));
 
   /* Реализуем работу кнопки лайка */
@@ -54,7 +53,7 @@ function submitCardsAddForm(event) {
     name: cardsTitleInput.value,
     link: cardsLinkInput.value,
   };
-  renderInitialCards(card);
+  renderCard(card);
   closePopup(popupCardsAdd);
   event.target.reset();
 }

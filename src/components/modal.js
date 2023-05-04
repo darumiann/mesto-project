@@ -2,7 +2,6 @@ import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus,
 import { toggleButtonStateFormCard } from '../components/validate.js';
 import { openPopup, closePopup } from './utils.js';
 
-
 /* Открытие и обработка openPopupEditProfile */
 function openPopupEditProfile() {
   profileNameInput.value = profileUserName.textContent;
