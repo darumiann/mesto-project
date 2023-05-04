@@ -1,8 +1,9 @@
 import './pages/index.css';
-import { createCards, renderInitialCards, submitCardsAddForm, cardsLikeButton } from './components/cards.js';
+import { createCard, renderCard, submitCardsAddForm, cardsLikeButton } from './components/cards.js';
 import { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit} from './components/validate.js';
-import { initialCards, formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popups, popupsArray, formProfileEdit, formAddCard} from './components/utils.js';
-import { openPopupEditProfile, editeProfile, openPopupCardsAdd, openPopup, closePopup } from './components/modal.js';
+import { initialCards, formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard} from './components/constants.js';
+import { openPopupEditProfile, editeProfile, openPopupCardsAdd, } from './components/modal.js';
+import { closePopup } from './components/utils.js';
 
 profileEditButton.addEventListener('click', () => openPopupEditProfile());
 popupEditProfile.addEventListener('submit', editeProfile);
@@ -11,27 +12,23 @@ popupCardsAdd.addEventListener('submit', submitCardsAddForm);
 
 enableValidation(formValidationConfig)
 
-/* Создаем массив из попапов и реализуем раоботы кнопки закрытия попапов*/
-popupsArray.forEach((popups) => {
-  popups.addEventListener('click', (event) => {
+/* Создаем массив из попапов и реализуем работу кнопки закрытия попапов*/
+popupsArray.forEach((popup) => {
+  popup.addEventListener('click', (event) => {
     if (event.target.classList.contains('popup__close-button')) {
-      closePopup(popups);
+      closePopup(popup);
     }
   })
-  document.addEventListener("keydown", function (evt) {
-    if (evt.key === "Escape") {
-      closePopup(popups)
-    }
-  })
-  popups.addEventListener("click", (evt) => {
+  popup.addEventListener("click", (evt) => {
     if (evt.currentTarget === evt.target) {
-      closePopup(popups)
+      closePopup(popup)
     }
   });
 });
 
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    closePopup(popups)
+export function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
-});
+}

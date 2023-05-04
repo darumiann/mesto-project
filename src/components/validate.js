@@ -1,4 +1,4 @@
-import { formValidationConfig, formProfileEdit, formAddCard } from '../components/utils.js';
+import { formValidationConfig, formProfileEdit, formAddCard } from '../components/constants.js';
 
 const toggleButtonState = (inputList, saveButton) => {
   const isValid = inputList.every((input) => input.validity.valid);
@@ -26,16 +26,16 @@ const setEventListeners = (formElement, formValidationConfig) => {
     const errorElement = inputElement.nextElementSibling;
     if (inputElement.value === '') {
       showInputError(inputElement);
-      errorElement.textContent = inputElement.getAttribute('data-error-empty-string');
+      errorElement.textContent = inputElement.dataset.errorEmptyString;
     } else if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
       showInputError(inputElement);
-      errorElement.textContent = inputElement.getAttribute('data-error-link');
+      errorElement.textContent = inputElement.dataset.errorLink;
     } else if (inputElement.value.trim().length === 1) {
       showInputError(inputElement);
-      errorElement.textContent = inputElement.getAttribute('data-error-semi-empty-string');
+      errorElement.textContent = inputElement.dataset.errorSemiEmptyString;
     } else if (inputElement.validity.patternMismatch) {
       showInputError(inputElement);
-      errorElement.textContent = inputElement.getAttribute('data-error-pattern');
+      errorElement.textContent = inputElement.dataset.errorPattern;
     } else {
       hideInputError(inputElement);
     }

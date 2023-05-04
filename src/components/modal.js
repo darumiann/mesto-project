@@ -1,4 +1,7 @@
-import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popups } from '../components/utils.js';
+import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup } from '../components/constants.js';
+import { toggleButtonStateFormCard } from '../components/validate.js';
+import { openPopup, closePopup } from './utils.js';
+
 
 /* Открытие и обработка openPopupEditProfile */
 function openPopupEditProfile() {
@@ -17,17 +20,8 @@ function editeProfile(event) {
 
 /* Открываем попап добавления карточки */
 function openPopupCardsAdd () {
+  toggleButtonStateFormCard();
   openPopup(popupCardsAdd);
 }
-
-/* Функция открытия PopUp */
-function openPopup(popups) {
-  popups.classList.add('popup_opened');
-};
-
-/* Функция закрытия PopUp */
-function closePopup(popups) {
-  popups.classList.remove('popup_opened');
-};
 
 export { openPopupEditProfile, editeProfile, openPopupCardsAdd, openPopup, closePopup};
