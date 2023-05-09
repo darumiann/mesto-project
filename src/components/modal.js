@@ -1,6 +1,6 @@
-import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup, avatarInput, submitButtonAvatar, profileAvatarForm, profileUserAvatar } from '../components/constants.js';
+import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup, avatarInput, submitButtonAvatar, profileAvatarForm, profileUserAvatar, formValidationConfig  } from '../components/constants.js';
 import { toggleButtonStateFormCard } from '../components/validate.js';
-import { openPopup, closePopup, buttonLoadingState } from './utils.js';
+import { openPopup, closePopup, changeButtonText  } from './utils.js';
 import { updateUserInfo, updateAvatar, getUserInfo, userInfo, getuserID} from './api.js';
 
 /* Открытие и обработка openPopupEditProfile */
@@ -15,30 +15,34 @@ function editeProfile(event) {
   event.preventDefault();
   const newName = profileNameInput.value;
   const newAbout = profileStatusInput.value;
-  profileUserAvatar.alt = newName;
-  buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonProfile);
+  changeButtonText('Сохранение...', 'Сохранить', true, submitButtonProfile);
   updateUserInfo(newName, newAbout)
   .then(userData => {
+    profileUserAvatar.alt = newName;
     profileUserName.textContent = profileNameInput.value;
     profileUserStatus.textContent = profileStatusInput.value;
-    buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonProfile);
     closePopup(popupEditProfile);
     profileUserName.textContent = userData.name;
     profileUserStatus.textContent = userData.about;
   })
+  .finally(() => {
+    changeButtonText('Сохранение...', 'Сохранить', false, submitButtonCard)
+  })
   .catch(error => { console.error(error) });
 }
-
 
 function editeProfileAvatar(event) {
   event.preventDefault();
   const newAvatar = avatarInput.value;
-  buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonAvatar);
+  changeButtonText('Сохранение...', 'Сохранить', true, submitButtonAvatar);
   updateAvatar(newAvatar, formValidationConfig)
   .then((newAvatar) => {
     profileUserAvatar.src = newAvatar;
-    buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonAvatar);
     closePopup(profileAvatarForm)
+  })
+  .finally(() => {
+    profileUserAvatar.src = newAvatar;
+    changeButtonText('Сохранение...', 'Сохранить', false, submitButtonCard)
   })
   .catch(error => { console.error(error) })
 }

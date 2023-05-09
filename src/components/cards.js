@@ -1,7 +1,6 @@
 import { cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupCardsAdd, submitButtonCard } from '../components/constants.js';
-import { openPopup, closePopup } from '../components/utils.js';
+import { openPopup, closePopup, changeButtonText } from '../components/utils.js';
 import { uploadNewCard, deleteCard, uploadDislikes, uploadLikes, userInfo } from '../components/api.js';
-import { buttonLoadingState } from './utils.js'
 
 /* Реализуем создание карточек */
 function createCard(data) {
@@ -78,14 +77,16 @@ function submitCardsAddForm(event) {
   event.preventDefault();
   const name = cardsTitleInput.value;
   const link = cardsLinkInput.value;
-  buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonCard)
+  changeButtonText('Сохранение...', 'Сохранить', true, submitButtonCard)
   uploadNewCard(name, link)
   .then(cardsData => {
     addCard(cardsData)
     closePopup(popupCardsAdd)
     cardsTitleInput.value = '';
     cardsLinkInput.value = '';
-    buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonCard)
+  })
+  .finally(() => {
+    changeButtonText('Сохранение...', 'Сохранить', false, submitButtonCard)
   })
   .catch(error => { console.error(error) })
 }

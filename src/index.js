@@ -3,11 +3,11 @@ import { createCard, renderCard, addCard, submitCardsAddForm } from './component
 import { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit} from './components/validate.js';
 import { formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard, profileUserAvatar, AvatarInput, submitButtonAvatar, profileAvatarForm, editProfileAvatarButton } from './components/constants.js';
 import {  openPopupEditProfile, editeProfile, editeProfileAvatar, openPopupCardsAdd, openPopupEditAvatar } from './components/modal.js';
-import { openPopup, closePopup, closeByEscape, buttonLoadingState } from './components/utils.js';
+import { openPopup, closePopup, closeByEscape, changeButtonText } from './components/utils.js';
 import { getResponseData, getInitialCards, getUserInfo, updateUserInfo, updateAvatar, uploadNewCard, deleteCard, uploadDislikes, uploadLikes, submitButtonCard,  userInfo, getuserID } from './components/api.js';
 
 editProfileAvatarButton.addEventListener('click', () => openPopupEditAvatar());
-submitButtonAvatar.addEventListener('submit', editeProfileAvatar);
+editPofileAvatar.addEventListener('submit', editeProfileAvatar);
 profileEditButton.addEventListener('click', () => openPopupEditProfile());
 popupEditProfile.addEventListener('submit', editeProfile);
 profileAddButton.addEventListener('click', () => openPopupCardsAdd());
