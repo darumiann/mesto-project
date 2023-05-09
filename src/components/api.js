@@ -32,7 +32,7 @@ function getUserInfo() {
   .then(res => getResponseData(res))
 }
 
-function updateUserInfo(name, about) {
+function updateUserInfo(name, about, avatar) {
   return fetch(`${config.BaseUrl}/users/me`, {
     method: 'PATCH',
     headers: config.headers,

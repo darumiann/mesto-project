@@ -61,10 +61,10 @@ const popupsArray = Array.from(document.querySelectorAll('.popup'));
 const formProfileEdit = document.querySelector('#user-editor');
 const formAddCard = document.querySelector('#card-poster');
 const submitButtonCard = document.querySelector('#submitButtonCard');
-const submitButtonAvatar = document.querySelector('#submitButtonAvatar');
-const AvatarInput = document.querySelector('#avatar-url');
+const submitButtonAvatar = document.getElementById('submitButtonAvatar');
+const avatarInput = document.querySelector('#avatar-url');
 const editPofileAvatar = document.querySelector('#editPofileAvatar');
 const profileAvatarForm = document.querySelector('#avatar-popup')
 const editProfileAvatarButton = document.querySelector('.profile__avatar-edit-button')
 
-export { formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard, profileUserAvatar, submitButtonCard, AvatarInput, submitButtonAvatar, editPofileAvatar, profileAvatarForm, editProfileAvatarButton } ;
+export { formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard, profileUserAvatar, submitButtonCard, avatarInput, submitButtonAvatar, editPofileAvatar, profileAvatarForm, editProfileAvatarButton } ;

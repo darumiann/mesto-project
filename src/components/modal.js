@@ -1,4 +1,4 @@
-import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup, AvatarInput, submitButtonAvatar, profileAvatarForm, profileUserAvatar } from '../components/constants.js';
+import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup, avatarInput, submitButtonAvatar, profileAvatarForm, profileUserAvatar } from '../components/constants.js';
 import { toggleButtonStateFormCard } from '../components/validate.js';
 import { openPopup, closePopup, buttonLoadingState } from './utils.js';
 import { updateUserInfo, updateAvatar, getUserInfo, userInfo, getuserID} from './api.js';
@@ -31,14 +31,13 @@ function editeProfile(event) {
 
 function editeProfileAvatar(event) {
   event.preventDefault();
-  const newAvatar = AvatarInput.value;
+  const newAvatar = avatarInput.value;
   buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonAvatar);
-  updateAvatar(newAvatar, validationSettings)
+  updateAvatar(newAvatar, formValidationConfig)
   .then((newAvatar) => {
     profileUserAvatar.src = newAvatar;
     buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonAvatar);
     closePopup(profileAvatarForm)
-    AvatarInput.value = ''
   })
   .catch(error => { console.error(error) })
 }
@@ -50,6 +49,7 @@ function openPopupCardsAdd () {
 }
 
 function openPopupEditAvatar () {
+  avatarInput.value = ''
   toggleButtonStateFormCard();
   openPopup(profileAvatarForm);
 }
