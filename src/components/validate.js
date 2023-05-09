@@ -1,4 +1,4 @@
-import { formValidationConfig, formProfileEdit, formAddCard } from '../components/constants.js';
+import { formValidationConfig, formProfileEdit, formAddCard, profileAvatarForm } from '../components/constants.js';
 
 const toggleButtonState = (inputList, saveButton) => {
   const isValid = inputList.every((input) => input.validity.valid);
@@ -54,6 +54,7 @@ const setEventListeners = (formElement, formValidationConfig) => {
 const enableValidation = (formValidationConfig) => {
   setEventListeners(formProfileEdit, formValidationConfig);
   setEventListeners(formAddCard, formValidationConfig);
+  setEventListeners(profileAvatarForm, formValidationConfig);
 }
 
 const toggleButtonStateFormCard = () => {

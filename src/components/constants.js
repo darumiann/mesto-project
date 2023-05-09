@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const formValidationConfig = {
   formElement: '.form',
   formInput: '.form__input',
@@ -66,7 +39,7 @@ const formValidationConfig = {
     },
   },
 };
-
+submitButtonAvatar
 const cardsTitleInput = document.querySelector('input[name="cardTitle"]');
 const cardsLinkInput = document.querySelector('input[name="cardLink"]');
 const cardContainer = document.querySelector('.elements');
@@ -78,6 +51,7 @@ const popupEditProfile = document.querySelector('#profile-popup');
 const profileNameInput = document.querySelector('input[name="username"]');
 const profileUserName = document.querySelector('.profile__user-name');
 const profileUserStatus = document.querySelector('.profile__user-status');
+const profileUserAvatar = document.querySelector('.profile__avatar');
 const profileStatusInput = document.querySelector('input[name="userstatus"]');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
@@ -86,5 +60,11 @@ const popup = document.querySelector('.popup');
 const popupsArray = Array.from(document.querySelectorAll('.popup'));
 const formProfileEdit = document.querySelector('#user-editor');
 const formAddCard = document.querySelector('#card-poster');
+const submitButtonCard = document.querySelector('#submitButtonCard');
+const submitButtonAvatar = document.querySelector('#submitButtonAvatar');
+const AvatarInput = document.querySelector('#avatar-url');
+const editPofileAvatar = document.querySelector('#editPofileAvatar');
+const profileAvatarForm = document.querySelector('#avatar-popup')
+const editProfileAvatarButton = document.querySelector('.profile__avatar-edit-button')
 
-export { initialCards, formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard };
+export { formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard, profileUserAvatar, submitButtonCard, AvatarInput, submitButtonAvatar, editPofileAvatar, profileAvatarForm, editProfileAvatarButton } ;

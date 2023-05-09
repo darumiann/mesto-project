@@ -17,4 +17,12 @@ function closeByEscape(evt) {
   }
 }
 
-export { openPopup, closePopup, closeByEscape };
+const buttonLoadingState = (loadingText, defaultText, isLoading, submitButton) => {
+  if (isLoading) {
+    submitButton.textContent = loadingText;
+  } else {
+    submitButton.textContent = defaultText;
+  }
+}
+
+export { openPopup, closePopup, closeByEscape, buttonLoadingState };

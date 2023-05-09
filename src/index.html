@@ -15,13 +15,14 @@
     <main>
       <section class="profile">
         <div class="profile__info">
-          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватарка">
+          <img class="profile__avatar" src="" alt="">
+          <button class="profile__avatar-edit-button"></button>
           <div class="profile__user">
             <div class="profile__edit">
-              <h1 class="profile__user-name">Жак-Ив Кусто</h1>
+              <h1 class="profile__user-name"></h1>
               <button class="profile__edit-button" type="button"></button>
             </div>
-            <p class="profile__user-status">Исследователь океана</p>
+            <p class="profile__user-status"></p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </div>
@@ -33,7 +34,10 @@
             <img class="elements__img" role="button" src="<%=require('./images/karachaevsk.jpg')%>" alt="Карачаевск">
             <div class="elements__info">
               <h2 class="elements__title">Карачаевск</h2>
-              <button class="elements__like" type="button" ID="elements__like"></button>
+              <div class="elements__like-container">
+                <button class="elements__like" type="button" ID="elements__like"></button>
+                <span class="elements__like-quantity"></span>
+              </div>
             </div>
           </div>
         </template>
@@ -76,7 +80,7 @@
             data-error-pattern="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
             <span class='form__input-error' id='user-activity-input-error'></span>
           </fieldset>
-          <button class="form__save-button" type="submit">Сохранить</button>
+          <button class="form__save-button" id="submitButtonProfile" type="submit">Сохранить</button>
         </form>
       </div>
     </section>
@@ -111,7 +115,7 @@
             data-error-link="Введите адрес сайта.">
             <span class='form__input-error' id='cardLink-input-error'></span>
           </fieldset>
-          <button class="form__save-button" type="submit">Создать</button>
+          <button class="form__save-button" id="submitButtonCard" type="submit">Создать</button>
         </form>
       </div>
     </section>
@@ -122,6 +126,27 @@
           <img class="popup__image" src="" alt="">
           <figcaption class="popup__image-caption"></figcaption>
         </figure>
+      </div>
+    </section>
+    <section id="avatar-popup" class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button"></button>
+        <form id="editPofileAvatar" name="profile-edit" class="form">
+          <h2 class="form__heading">Обновить аватар</h2>
+          <fieldset class="form__field">
+            <input
+            type="url"
+            id="avatar-url"
+            name="avatarUrl"
+            placeholder="Ссылка на картинку"
+            class="form__input form__input-avatar"
+            required
+            data-error-empty-string="Вы пропустили это поле."
+            data-error-link="Введите адрес сайта.">
+            <span class="form__input-error card-url-input-error"></span>
+            <button type="submit" id="submitButtonAvatar" class="form__save-button">Сохранить</button>
+          </div>
+        </form>
       </div>
     </section>
   </div>
