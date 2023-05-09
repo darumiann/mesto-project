@@ -29,6 +29,7 @@ function editeProfile(event) {
   .catch(error => { console.error(error) });
 }
 
+
 function editeProfileAvatar(event) {
   event.preventDefault();
   const newAvatar = avatarInput.value;
