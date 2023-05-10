@@ -1,10 +1,11 @@
-import { formValidationConfig, formProfileEdit, formAddCard, profileAvatarForm } from '../components/constants.js';
+import { formValidationConfig, formProfileEdit, formAddCard, profileAvatarForm  } from '../components/constants.js';
 
 const toggleButtonState = (inputList, saveButton) => {
   const isValid = inputList.every((input) => input.validity.valid);
   saveButton.disabled = !isValid;
   saveButton.classList.toggle(formValidationConfig.inactiveSaveButton, !isValid);
 };
+
 
 const setEventListeners = (formElement, formValidationConfig) => {
   const saveButton = formElement.querySelector(formValidationConfig.saveButton);
@@ -65,8 +66,8 @@ const toggleButtonStateProfileEdit = () => {
   toggleButtonState(Array.from(formProfileEdit.querySelectorAll(formValidationConfig.formInput)), formProfileEdit.querySelector(formValidationConfig.saveButton));
 };
 
-const toggleButtonStateProfileAvatarEdit = () => {
-  toggleButtonState(Array.from(profileAvatarForm.querySelectorAll(formValidationConfig.formInput)), formProfileEdit.querySelector(formValidationConfig.saveButton));
+const toggleButtonStateAvatarEdit = () => {
+  toggleButtonState(Array.from(profileAvatarForm.querySelectorAll(formValidationConfig.formInput)), profileAvatarForm.querySelector(formValidationConfig.saveButton));
 };
 
-export { enableValidation, toggleButtonStateProfileAvatarEdit, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit };
+export { enableValidation, toggleButtonStateAvatarEdit, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit };

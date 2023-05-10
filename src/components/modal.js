@@ -1,15 +1,7 @@
 import { popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, popupCardsAdd, popup, avatarInput, submitButtonAvatar, profileAvatarForm, profileUserAvatar, formValidationConfig  } from '../components/constants.js';
-import { toggleButtonStateFormCard, toggleButtonStateProfileAvatarEdit, toggleButtonStateProfileEdit } from '../components/validate.js';
+import { toggleButtonStateFormCard, toggleButtonStateAvatarEdit, toggleButtonStateProfileEdit } from '../components/validate.js';
 import { openPopup, closePopup, changeButtonText  } from './utils.js';
 import { updateUserInfo, updateAvatar, getUserInfo, userInfo, getuserID} from './api.js';
-
-/* Открытие и обработка openPopupEditProfile */
-function openPopupEditProfile() {
-  profileNameInput.value = profileUserName.textContent;
-  profileStatusInput.value = profileUserStatus.textContent;
-  openPopup(popupEditProfile);
-  toggleButtonStateProfileEdit()
-}
 
 /* Закрытие и обработка openPopupEditProfile */
 function editeProfile(event) {
@@ -20,14 +12,12 @@ function editeProfile(event) {
   updateUserInfo(newName, newAbout)
   .then(userData => {
     profileUserAvatar.alt = newName;
-    profileUserName.textContent = profileNameInput.value;
-    profileUserStatus.textContent = profileStatusInput.value;
     closePopup(popupEditProfile);
     profileUserName.textContent = userData.name;
     profileUserStatus.textContent = userData.about;
   })
   .finally(() => {
-    changeButtonText('Сохранение...', 'Сохранить', false, submitButtonProfile)
+    changeButtonText('Сохранение...', 'Сохранить', false, submitButtonProfile);
   })
   .catch(error => { console.error(error) });
 }
@@ -36,7 +26,7 @@ function editeProfileAvatar(event) {
   event.preventDefault();
   const newAvatar = avatarInput.value;
   changeButtonText('Сохранение...', 'Сохранить', true, submitButtonAvatar);
-  updateAvatar(newAvatar, formValidationConfig)
+  updateAvatar(newAvatar)
   .then((newAvatar) => {
     profileUserAvatar.src = newAvatar;
     closePopup(profileAvatarForm)
@@ -56,8 +46,20 @@ function openPopupCardsAdd () {
 }
 
 function openPopupEditAvatar () {
-  toggleButtonStateProfileAvatarEdit();
+  toggleButtonStateAvatarEdit();
   openPopup(profileAvatarForm);
 }
 
-export { openPopupEditProfile, editeProfile, editeProfileAvatar, openPopupCardsAdd, openPopupEditAvatar};
+/* Открытие и обработка openPopupEditProfile */
+function openPopupEditProfile() {
+  toggleButtonProfile();
+  profileNameInput.value = profileUserName.textContent;
+  profileStatusInput.value = profileUserStatus.textContent;
+  openPopup(popupEditProfile);
+}
+function toggleButtonProfile() {
+  submitButtonProfile.disabled;
+  submitButtonProfile.classList.add(formValidationConfig.inactiveSaveButton);
+}
+
+export { toggleButtonProfile, openPopupEditProfile, editeProfile, editeProfileAvatar, openPopupCardsAdd, openPopupEditAvatar};

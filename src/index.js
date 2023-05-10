@@ -1,8 +1,8 @@
 import './pages/index.css';
 import { createCard, renderCard, addCard, submitCardsAddForm } from './components/cards.js';
-import { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit, toggleButtonStateProfileAvatarEdit } from './components/validate.js';
+import { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit, toggleButtonStateAvatarEdit } from './components/validate.js';
 import { formValidationConfig, cardsTitleInput, cardsLinkInput, cardContainer, cardTemplate, popupImage, imageCaption, imagePhoto, popupEditProfile, profileNameInput, profileUserName, profileUserStatus, profileStatusInput, profileEditButton, profileAddButton, popupCardsAdd, popup, popupsArray, formProfileEdit, formAddCard, profileUserAvatar, AvatarInput, submitButtonAvatar, profileAvatarForm, editProfileAvatarButton } from './components/constants.js';
-import {  openPopupEditProfile, editeProfile, editeProfileAvatar, openPopupCardsAdd, openPopupEditAvatar } from './components/modal.js';
+import {  openPopupEditProfile, editeProfile, editeProfileAvatar, openPopupCardsAdd, openPopupEditAvatar, toggleButtonEditProfile, toggleButtonProfile } from './components/modal.js';
 import { openPopup, closePopup, closeByEscape, changeButtonText } from './components/utils.js';
 import { getResponseData, getInitialCards, getUserInfo, updateUserInfo, updateAvatar, uploadNewCard, deleteCard, uploadDislikes, uploadLikes, submitButtonCard,  userInfo, getuserID } from './components/api.js';
 
@@ -14,6 +14,7 @@ profileAddButton.addEventListener('click', () => openPopupCardsAdd());
 popupCardsAdd.addEventListener('submit', submitCardsAddForm);
 
 enableValidation(formValidationConfig)
+
 
 /* Создаем массив из попапов и реализуем работу кнопки закрытия попапов*/
 popupsArray.forEach((popup) => {
