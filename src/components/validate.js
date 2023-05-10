@@ -65,4 +65,8 @@ const toggleButtonStateProfileEdit = () => {
   toggleButtonState(Array.from(formProfileEdit.querySelectorAll(formValidationConfig.formInput)), formProfileEdit.querySelector(formValidationConfig.saveButton));
 };
 
-export { enableValidation, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit };
+const toggleButtonStateProfileAvatarEdit = () => {
+  toggleButtonState(Array.from(profileAvatarForm.querySelectorAll(formValidationConfig.formInput)), formProfileEdit.querySelector(formValidationConfig.saveButton));
+};
+
+export { enableValidation, toggleButtonStateProfileAvatarEdit, toggleButtonStateFormCard, toggleButtonState, toggleButtonStateProfileEdit };
