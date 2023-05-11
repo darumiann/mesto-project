@@ -85,10 +85,10 @@ function submitCardsAddForm(event) {
     cardsTitleInput.value = '';
     cardsLinkInput.value = '';
   })
+  .catch(error => { console.error(error) })
   .finally(() => {
     changeButtonText('Сохранение...', 'Сохранить', false, submitButtonCard)
   })
-  .catch(error => { console.error(error) })
 }
 
 export { createCard, renderCard, addCard, submitCardsAddForm };

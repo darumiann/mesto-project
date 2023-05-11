@@ -16,10 +16,10 @@ function editeProfile(event) {
     profileUserName.textContent = userData.name;
     profileUserStatus.textContent = userData.about;
   })
+  .catch(error => { console.error(error) })
   .finally(() => {
     changeButtonText('Сохранение...', 'Сохранить', false, submitButtonProfile);
   })
-  .catch(error => { console.error(error) });
 }
 
 function editeProfileAvatar(event) {
@@ -27,16 +27,15 @@ function editeProfileAvatar(event) {
   const newAvatar = avatarInput.value;
   changeButtonText('Сохранение...', 'Сохранить', true, submitButtonAvatar);
   updateAvatar(newAvatar)
-  .then((newAvatar) => {
-    profileUserAvatar.src = newAvatar;
+  .then((userData) => {
+    profileUserAvatar.src = userData.avatar;
     closePopup(profileAvatarForm)
     avatarInput.value = '';
   })
+  .catch(error => { console.error(error) })
   .finally(() => {
-    profileUserAvatar.src = newAvatar;
     changeButtonText('Сохранение...', 'Сохранить', false, submitButtonAvatar)
   })
-  .catch(error => { console.error(error) })
 }
 
 /* Открываем попап добавления карточки */
